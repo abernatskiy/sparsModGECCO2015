@@ -5,11 +5,11 @@ Materials for reproducing results from the paper "Exploiting the relationship be
 2. Current version assumes that all folders of the repository are located at $HOME.
 3. Python2 is the main language of the codebase. The interpreter binary is expected at ${HOME}/anaconda/bin/python2.7. To install the Anaconda Python environment, visit http://continuum.io/download. If you wish to use the code without installing Anaconda, run the following commands:
 
-```
-$ cd ~
-$ mkdir -p anaconda/bin
-$ ln -s /usr/bin/python2 ${HOME}/anaconda/bin/python2.7
-```
+ ```  
+ $ cd ~  
+ $ mkdir -p anaconda/bin  
+ $ ln -s /usr/bin/python2 ${HOME}/anaconda/bin/python2.7  
+ ```  
 
 4. Whichever Python2 is used, it must have NumPy installed.
 5. The code depends on the binaries of the [findcommunities](https://sites.google.com/site/findcommunities/) modularity optimizer. Download the "updated" version of the source code and compile it:
