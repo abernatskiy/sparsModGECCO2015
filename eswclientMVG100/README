@@ -1,0 +1,7 @@
+ESWClient - Espinosa-Soto Wagner -style boolean network evaluator
+
+This application serves as a client to EVolutionary Server (EVS),
+which takes genomes of the boolean networks as its input and returns
+their fitness values as output. The networks and fitness evaluation 
+procedures are identical to the ones described in the Espinosa-Soto
+Wagner 2010 paper (DOI: 10.1371/journal.pcbi.1000719).
