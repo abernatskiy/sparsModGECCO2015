@@ -5,32 +5,32 @@ Materials for reproducing results from the paper "Exploiting the relationship be
 2. Current version assumes that all folders of the repository are located at $HOME.
 3. Python2 is the main language of the codebase. The interpreter binary is expected at ${HOME}/anaconda/bin/python2.7. To install the Anaconda Python environment, visit http://continuum.io/download. If you wish to use the code without installing Anaconda, run the following commands:
 
-$ cd ~
-$ mkdir -p anaconda/bin
-$ ln -s /usr/bin/python2 ${HOME}/anaconda/bin/python2.7
+>$ cd ~
+>$ mkdir -p anaconda/bin
+>$ ln -s /usr/bin/python2 ${HOME}/anaconda/bin/python2.7
 
 4. Whichever Python2 is used, it must have NumPy installed.
-5. The code depends on the binaries of the findcommunities modularity optimizer (https://sites.google.com/site/findcommunities/). Download the "updated" version of the source code and compile it:
+5. The code depends on the binaries of the [findcommunities](https://sites.google.com/site/findcommunities/) modularity optimizer. Download the "updated" version of the source code and compile it:
 
-$ cd ~/findcommunities/
-$ wget https://sites.google.com/site/findcommunities/newversion/community.tgz
-$ tar -xf community.tgz
-$ cd Community_latest
-$ make
+>$ cd ~/findcommunities/
+>$ wget https://sites.google.com/site/findcommunities/newversion/community.tgz
+>$ tar -xf community.tgz
+>$ cd Community_latest
+>$ make
 
 On some systems compilation fails with a "‘getpid’ was not declared in this scope" error. It can be fixed by adding the "#include <unistd.h>" line to the include section of main_community.cpp.
 
 When done with the compilation, create named pipes for the wrapper:
 
-$ cd ~/findcommunities/
-$ ./makePipes.sh
+>$ cd ~/findcommunities/
+>$ ./makePipes.sh
 
 6. Root executables of the project are at ~/evscripts/experiment*.py. They accept two arguments: run ID as the first and config file name as a second. Run ID is an integer from 0..199 which determines the random seed is to be used in the current run (random seed values are stored at ~/evscripts/randints1421128240.dat). All provided configs are named config.ini.
 
 7. To run an experiment, go to the corresonding directory at ~/experimentalData and run the corresponding binary, e.g.
 
-$ cd ~/experimentalData/experiment1taskA
-$ ~/anaconda/bin/python2.7 ~/evscripts/experiment1taskA.py 10 config.ini
+>$ cd ~/experimentalData/experiment1taskA
+>$ ~/anaconda/bin/python2.7 ~/evscripts/experiment1taskA.py 10 config.ini
 
 The script outputs the number of the current generation and a newline at each generation change. It should begin printing these number shortly after the execution.
 
@@ -44,8 +44,8 @@ bestIndividual*.log files contain raw data from the evolutionary simulation: gen
 
 9. The raw data files can be processed by going to an ~/experimentalData/experiment* folder and executing ~/evscripts/processDir.sh, e.g.
 
-$ cd ~/experimentalData/experiment1taskA
-$ ~/evscripts/processDir.sh
+>$ cd ~/experimentalData/experiment1taskA
+>$ ~/evscripts/processDir.sh
 
 For each subfolder of ~/experimentalData/experiment1taskA this will create three files: <subfolderName>.fitness, <subfolderName>.qvalue and <subfolderName>.density. In these files, each line corresponds to a generation and contains all values of the corresponding parameters of the champions across the runs (random seed values).
 
